@@ -2,14 +2,13 @@ package com.example.apptfg;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.apptfg.entidad.DatosUsuarioSingleton;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class HomeActivity extends AppCompatActivity {
+public class ResultadosActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +16,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         Bundle bundle = getIntent().getExtras();
         String email = bundle.getString("email");
-        String proovedor = bundle.getString("proovedor");
+        String proovedor = bundle.getString("proveedor");
         setup(email,proovedor);
     }
 

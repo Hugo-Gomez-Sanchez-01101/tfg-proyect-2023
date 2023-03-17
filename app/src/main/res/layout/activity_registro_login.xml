@@ -18,7 +18,7 @@
         <EditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Email" />
@@ -30,7 +30,7 @@
         <EditText
             android:id="@+id/contrasenaEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Contraseña" />
@@ -58,5 +58,15 @@
                 android:layout_weight="1"
                 android:text="Acceder" />
         </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+
+        <Button
+            android:id="@+id/btnRegistroGoogle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registrarse con google" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
