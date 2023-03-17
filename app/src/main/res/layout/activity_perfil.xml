@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DC131212">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="119dp"
+        android:layout_height="106dp"
+        android:layout_margin="5dp"
+        android:elevation="10dp"
+        app:cardCornerRadius="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.186">
+
+        <ImageView
+            android:id="@+id/imagenPerfil"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/profile" />
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btnEditar"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="208dp"
+        android:layout_marginEnd="128dp"
+        android:background="@drawable/lapiz"
+        android:backgroundTint="#FFB4241C"
+        app:iconGravity="textEnd"
+        app:iconPadding="1dp"
+        app:iconSize="20dp"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nombreUsuario17Lbl"
+        android:layout_width="238dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="268dp"
+        android:text="El destructor"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nombreUsuario17Lbl2"
+        android:layout_width="238dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="44dp"
+        android:autoText="false"
+        android:freezesText="false"
+        android:text="Mi Perfil"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/correoUsuarioLbl"
+        android:layout_width="322dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="320dp"
+        android:layout_marginBottom="36dp"
+        android:text="hugo.gs2002@gmail.com"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnListaOrdenadores"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnListaOrdenadores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="292dp"
+        android:backgroundTint="#B4241C"
+        android:text="Mis Ordenadores"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/correoUsuarioLbl" />
+
+    <Button
+        android:id="@+id/btnAjustes"
+        android:layout_width="64dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="172dp"
+        android:layout_marginBottom="116dp"
+        android:background="@drawable/ajustes"
+        android:backgroundTint="#B4241C"
+        android:hapticFeedbackEnabled="false"
+        android:textColor="#B4241C"
+        android:textColorHighlight="#B4241C"
+        android:textStyle="bold"
+        app:iconGravity="top"
+        app:iconTint="#B4241C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
