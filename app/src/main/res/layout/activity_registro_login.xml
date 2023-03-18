@@ -3,12 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF">
 
     <LinearLayout
+        android:id="@+id/authLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="164dp"
+        android:layout_marginTop="196dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -19,9 +22,12 @@
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="48dp"
+            android:backgroundTint="#B4241C"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Email" />
+            android:inputType="text"
+            android:text="Email"
+            android:textColor="#000000"
+            android:textColorHint="#000000" />
 
         <Space
             android:layout_width="match_parent"
@@ -31,9 +37,11 @@
             android:id="@+id/contrasenaEditText"
             android:layout_width="match_parent"
             android:layout_height="48dp"
+            android:backgroundTint="#B4241C"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Contraseña" />
+            android:inputType="textPassword"
+            android:text="Contraseña"
+            android:textColor="#000000" />
 
         <Space
             android:layout_width="match_parent"
@@ -46,8 +54,9 @@
 
             <Button
                 android:id="@+id/btnRegistrar"
-                android:layout_width="wrap_content"
+                android:layout_width="99dp"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:text="Registrar" />
 
@@ -55,18 +64,23 @@
                 android:id="@+id/btnAcceder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:text="Acceder" />
         </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="60dp" />
+            android:layout_height="15dp" />
 
         <Button
             android:id="@+id/btnRegistroGoogle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Registrarse con google" />
+            android:layout_height="65dp"
+            android:backgroundTint="#E1DEDE"
+            android:text="Google"
+            android:textAlignment="viewStart"
+            android:textColor="#000000"
+            app:icon="@drawable/common_google_signin_btn_icon_light_normal" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

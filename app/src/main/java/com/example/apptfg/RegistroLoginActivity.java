@@ -1,7 +1,9 @@
 package com.example.apptfg;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -14,7 +16,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.apptfg.entidad.DatosUsuarioSingleton;
 import com.example.apptfg.provider_tipe.ProviderType;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -26,6 +27,24 @@ public class RegistroLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_login);
         setup();
+        sesion();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        findViewById(R.id.authLayout).setVisibility(View.VISIBLE);
+    }
+
+    private void sesion() {
+        SharedPreferences prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE);
+        String email = prefs.getString("email", null);
+        String proveedor = prefs.getString("proveedor", null);
+
+        if(email != null && proveedor != null) {
+            findViewById(R.id.authLayout).setVisibility(View.INVISIBLE);
+            irHome(email, ProviderType.valueOf(proveedor));
+        }
     }
 
     private void setup() {
@@ -43,7 +62,6 @@ public class RegistroLoginActivity extends AppCompatActivity {
                     .signInWithEmailAndPassword(e.getText().toString(), c.getText().toString())
                     .addOnCompleteListener((task) -> {
                         if(task.isSuccessful()){
-                            DatosUsuarioSingleton.inicializar(task.getResult().getUser().getEmail(), ProviderType.BASIC);
                             irHome(task.getResult().getUser().getEmail(), ProviderType.BASIC);
                         } else{
                             mostrarAlerta();
@@ -58,7 +76,6 @@ public class RegistroLoginActivity extends AppCompatActivity {
                     .createUserWithEmailAndPassword(e.getText().toString(), c.getText().toString())
                     .addOnCompleteListener((task) -> {
                 if(task.isSuccessful()){
-                    DatosUsuarioSingleton.inicializar(task.getResult().getUser().getEmail(), ProviderType.BASIC);
                     irHome(task.getResult().getUser().getEmail(), ProviderType.BASIC);
                 } else{
                     mostrarAlerta();
@@ -79,7 +96,7 @@ public class RegistroLoginActivity extends AppCompatActivity {
     private void irHome(String email, ProviderType proveedor){
         Intent i = new Intent(this, ResultadosActivity.class);
         i.putExtra("email",email);
-        i.putExtra("proveedor",proveedor);
+        i.putExtra("proveedor",proveedor + "");
         startActivity(i);
     }
 

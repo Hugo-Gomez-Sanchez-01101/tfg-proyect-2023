@@ -7,4 +7,5 @@
     <string name="logopc">LOGOPC</string>
     <string name="ver">Ver</string>
     <string name="eliminarO">ELIMINAR</string>
+    <string name="prefs_file">com.example.apptfg.PREFERENCE.FILE.KEY</string>
 </resources>
