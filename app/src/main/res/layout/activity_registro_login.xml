@@ -58,6 +58,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
+                android:background="#B4241C"
+                android:backgroundTint="#B4241C"
                 android:text="Registrar" />
 
             <Button
@@ -66,12 +68,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
+                android:background="#B4241C"
                 android:text="Acceder" />
         </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="15dp" />
+            android:layout_height="5dp" />
 
         <Button
             android:id="@+id/btnRegistroGoogle"

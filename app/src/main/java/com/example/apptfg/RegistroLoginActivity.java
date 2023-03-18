@@ -5,12 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -20,7 +16,7 @@ import com.example.apptfg.provider_tipe.ProviderType;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class RegistroLoginActivity extends AppCompatActivity {
-    EditText e;
+    EditText email;
     EditText c;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,18 +44,24 @@ public class RegistroLoginActivity extends AppCompatActivity {
     }
 
     private void setup() {
-        e = findViewById(R.id.emailEditText);
+        email = findViewById(R.id.emailEditText);
         c = findViewById(R.id.contrasenaEditText);
-        e.setOnClickListener(v -> vaciarCampos(e));
+        email.setOnClickListener(v -> vaciarCampos(email));
         c.setOnClickListener(v -> vaciarCampos(c));
-        findViewById(R.id.btnRegistrar).setOnClickListener(v -> registrar());
+        findViewById(R.id.btnRegistrar).setOnClickListener(v -> irTerminarRegistro());
         findViewById(R.id.btnAcceder).setOnClickListener(v -> acceder());
     }
 
+    private void irTerminarRegistro() {
+        Intent i = new Intent(this, TerminarRegistroActivity.class);
+        i.putExtra("email", email.getText().toString());
+        startActivity(i);
+    }
+
     private void acceder() {
-        if (!e.getText().toString().isEmpty() && !c.getText().toString().isEmpty()) {
+        if (!email.getText().toString().isEmpty() && !c.getText().toString().isEmpty()) {
             FirebaseAuth.getInstance()
-                    .signInWithEmailAndPassword(e.getText().toString(), c.getText().toString())
+                    .signInWithEmailAndPassword(email.getText().toString(), c.getText().toString())
                     .addOnCompleteListener((task) -> {
                         if(task.isSuccessful()){
                             irHome(task.getResult().getUser().getEmail(), ProviderType.BASIC);
@@ -67,20 +69,6 @@ public class RegistroLoginActivity extends AppCompatActivity {
                             mostrarAlerta();
                         }
                     });
-        }
-    }
-
-    private void registrar() {
-        if (!e.getText().toString().isEmpty() && !c.getText().toString().isEmpty()) {
-            FirebaseAuth.getInstance()
-                    .createUserWithEmailAndPassword(e.getText().toString(), c.getText().toString())
-                    .addOnCompleteListener((task) -> {
-                if(task.isSuccessful()){
-                    irHome(task.getResult().getUser().getEmail(), ProviderType.BASIC);
-                } else{
-                    mostrarAlerta();
-                }
-            });
         }
     }
 
@@ -102,16 +90,5 @@ public class RegistroLoginActivity extends AppCompatActivity {
 
     private void vaciarCampos(EditText e){
         e.setText("");
-    }
-
-
-    private void mostrarToast() {
-        LayoutInflater layoutInflater = getLayoutInflater();
-        View view = layoutInflater.inflate(R.layout.toast_campos_vacios,(ViewGroup) findViewById(R.id.toastCamposVacios));
-        Toast t = new Toast(getApplicationContext());
-        t.setGravity(Gravity.CENTER_VERTICAL | Gravity.BOTTOM, 0, 200);
-        t.setDuration(Toast.LENGTH_SHORT);
-        t.setView(view);
-        t.show();
     }
 }
