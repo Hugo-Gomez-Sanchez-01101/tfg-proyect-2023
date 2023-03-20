@@ -13,9 +13,19 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.apptfg.provider_tipe.ProviderType;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.GoogleAuthProvider;
 
 public class RegistroLoginActivity extends AppCompatActivity {
+    private final int GOOGLE_SIGN_IN = 100;
     EditText email;
     EditText c;
     @Override
@@ -50,6 +60,22 @@ public class RegistroLoginActivity extends AppCompatActivity {
         c.setOnClickListener(v -> vaciarCampos(c));
         findViewById(R.id.btnRegistrar).setOnClickListener(v -> irTerminarRegistro());
         findViewById(R.id.btnAcceder).setOnClickListener(v -> acceder());
+        findViewById(R.id.btnRegistroGoogle).setOnClickListener(v -> regitrarConGoogle());
+    }
+
+    private void regitrarConGoogle() {
+        GoogleSignInOptions googleConf;
+
+        googleConf = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
+
+        GoogleSignInClient googleClient;
+        googleClient = GoogleSignIn.getClient(this, googleConf);
+        googleClient.signOut();
+        startActivityForResult(googleClient.getSignInIntent(), GOOGLE_SIGN_IN);
     }
 
     private void irTerminarRegistro() {
@@ -90,5 +116,30 @@ public class RegistroLoginActivity extends AppCompatActivity {
 
     private void vaciarCampos(EditText e){
         e.setText("");
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == GOOGLE_SIGN_IN){
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            GoogleSignInAccount account = null;
+            try {
+                account = task.getResult(ApiException.class);
+                if(account != null) {
+                    AuthCredential credetial = GoogleAuthProvider.getCredential(account.getIdToken(), null);
+                    GoogleSignInAccount finalAccount = account;
+                    FirebaseAuth.getInstance().signInWithCredential(credetial).addOnCompleteListener((it) -> {
+                        if(it.isSuccessful()){
+                            irHome(finalAccount.getEmail(), ProviderType.GOOGLE);
+                        } else{
+                            mostrarAlerta();
+                        }
+                    });
+                }
+            } catch (ApiException e) {
+                mostrarAlerta();
+            }
+        }
     }
 }
