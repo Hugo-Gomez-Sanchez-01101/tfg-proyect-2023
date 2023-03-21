@@ -108,7 +108,7 @@ public class RegistroLoginActivity extends AppCompatActivity {
     }
 
     private void irHome(String email, ProviderType proveedor){
-        Intent i = new Intent(this, ResultadosActivity.class);
+        Intent i = new Intent(this, ListaOrdenadoresActivity.class);
         i.putExtra("email",email);
         i.putExtra("proveedor",proveedor + "");
         startActivity(i);

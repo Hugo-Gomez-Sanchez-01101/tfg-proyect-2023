@@ -15,4 +15,45 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.427" />
+    <ImageButton
+        android:id="@+id/iCasa"
+        android:layout_width="55dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="344dp"
+        android:background="#FFFFFF"
+        android:foreground="@drawable/casitatf"
+        android:src="@drawable/casitatf"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+    </ImageButton>
+
+    <ImageButton
+        android:id="@+id/iUsuario"
+        android:layout_width="64dp"
+        android:layout_height="63dp"
+        android:background="@drawable/usuariotfg"
+        android:scaleType="centerInside"
+        android:src="@drawable/usuariotfg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints">
+
+    </ImageButton>
+
+    <ImageButton
+        android:id="@+id/iOrdenador"
+        android:layout_width="59dp"
+        android:layout_height="60dp"
+        android:background="@drawable/ordenadortfg"
+        android:scaleType="centerInside"
+        android:src="@drawable/ordenadortfg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iUsuario"
+        app:layout_constraintStart_toEndOf="@+id/iCasa"
+        tools:ignore="MissingConstraints">
+
+    </ImageButton>
 </androidx.constraintlayout.widget.ConstraintLayout>

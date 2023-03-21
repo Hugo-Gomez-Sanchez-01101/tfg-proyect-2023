@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DC131212">
+    android:background="#DCFBFBFB">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -12,20 +12,20 @@
         android:layout_height="106dp"
         android:layout_margin="5dp"
         android:elevation="10dp"
-        app:cardCornerRadius="50dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.186">
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imagenPerfil"
-            android:layout_width="match_parent"
+            android:layout_width="113dp"
             android:layout_height="match_parent"
             android:background="@color/white"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/profile" />
+            app:srcCompat="@drawable/usuariotfg" />
     </androidx.cardview.widget.CardView>
 
     <Button
@@ -35,38 +35,39 @@
         android:layout_marginTop="208dp"
         android:layout_marginEnd="128dp"
         android:background="@drawable/lapiz"
-        android:backgroundTint="#FFB4241C"
+        android:backgroundTint="#1CB4AF"
         app:iconGravity="textEnd"
         app:iconPadding="1dp"
         app:iconSize="20dp"
-        app:iconTint="#FFFFFF"
+        app:iconTint="#BD0E0E"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/nombreUsuario17Lbl"
+        android:id="@+id/lblEmail"
         android:layout_width="238dp"
         android:layout_height="37dp"
-        android:layout_marginTop="268dp"
-        android:text="El destructor"
+        android:text="Email"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="#131212"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.367" />
 
     <TextView
-        android:id="@+id/nombreUsuario17Lbl2"
+        android:id="@+id/lblPerfil"
         android:layout_width="238dp"
         android:layout_height="37dp"
         android:layout_marginTop="44dp"
-        android:autoText="false"
         android:freezesText="false"
         android:text="Mi Perfil"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="#0E0E0E"
         android:textColorHighlight="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,14 +76,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/correoUsuarioLbl"
-        android:layout_width="322dp"
-        android:layout_height="0dp"
+        android:id="@+id/lblPhone"
+        android:layout_width="362dp"
+        android:layout_height="48dp"
         android:layout_marginTop="320dp"
         android:layout_marginBottom="36dp"
-        android:text="hugo.gs2002@gmail.com"
+        android:text="hola"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="#0B0A0A"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnListaOrdenadores"
@@ -96,29 +97,86 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="292dp"
-        android:backgroundTint="#B4241C"
-        android:text="Mis Ordenadores"
+        android:backgroundTint="#ED4242"
+        android:text="Lista de ordenadores"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/correoUsuarioLbl" />
+         />
+
 
     <Button
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#E64949"
+        android:text="Cerar Sesion"
+        app:iconTint="#DF4B4B"
+        app:layout_constraintBottom_toTopOf="@+id/btnAjustes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnListaOrdenadores"
+        tools:ignore="MissingConstraints"></Button>
+
+    <ImageButton
         android:id="@+id/btnAjustes"
-        android:layout_width="64dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="172dp"
-        android:layout_marginBottom="116dp"
-        android:background="@drawable/ajustes"
-        android:backgroundTint="#B4241C"
+        android:layout_width="80dp"
+        android:layout_height="83dp"
+        android:layout_marginEnd="164dp"
+        android:layout_marginBottom="112dp"
+        android:background="@drawable/ajustestfg"
+        android:backgroundTint="#FFFFFF"
         android:hapticFeedbackEnabled="false"
+        android:scaleType="centerInside"
+        android:src="@drawable/ajustestfg"
         android:textColor="#B4241C"
         android:textColorHighlight="#B4241C"
         android:textStyle="bold"
         app:iconGravity="top"
         app:iconTint="#B4241C"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:src="@drawable/ajustestfg" />
+    <ImageButton
+        android:id="@+id/iCasa"
+        android:layout_width="55dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="344dp"
+        android:background="#FFFFFF"
+        android:foreground="@drawable/casitatf"
+        android:src="@drawable/casitatf"
+        app:layout_constraintBottom_toBottomOf="parent"
 
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+    </ImageButton>
+
+    <ImageButton
+        android:id="@+id/iUsuario"
+        android:layout_width="64dp"
+        android:layout_height="63dp"
+        android:background="@drawable/usuariotfg"
+        android:scaleType="centerInside"
+        android:src="@drawable/usuariotfg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints">
+
+    </ImageButton>
+
+    <ImageButton
+        android:id="@+id/iOrdenador"
+        android:layout_width="59dp"
+        android:layout_height="60dp"
+        android:background="@drawable/ordenadortfg"
+        android:scaleType="centerInside"
+        android:src="@drawable/ordenadortfg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iUsuario"
+        app:layout_constraintStart_toEndOf="@+id/iCasa"
+        tools:ignore="MissingConstraints">
+
+    </ImageButton>
 </androidx.constraintlayout.widget.ConstraintLayout>
