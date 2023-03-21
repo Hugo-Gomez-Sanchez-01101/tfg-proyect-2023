@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">appTFG</string>
+    <string name="titulo">TITULO</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="nombre_pc">NOMBRE PC</string>
+    <string name="todo">TODO</string>
+    <string name="logopc">LOGOPC</string>
+    <string name="ver">Ver</string>
+    <string name="eliminarO">ELIMINAR</string>
+    <string name="prefs_file">com.example.apptfg.PREFERENCE.FILE.KEY</string>
+</resources>
